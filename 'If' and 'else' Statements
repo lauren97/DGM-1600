@@ -1,0 +1,15 @@
+If and else statements are used to determine different outcomes. For example if I were to determine what color goes to which person based on age, I would ask for the age of two people.
+
+int person1 = 18, person2 = 22;
+if (person1 > person2)
+{
+  print ("Your color is White.");
+}
+else if(person < person2)
+{
+  print ("Your color is Green.");
+}
+else
+{
+  print ("Your color is Pink.")
+}
