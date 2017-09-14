@@ -40,10 +40,7 @@ public class NumberGuessing : MonoBehaviour {
 		//You Win Statement
 		if (count == -1) 
 		{
-			if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.DownArrow)) 
-			{
-				print ("You win!");
-			}		
+			theGuesser.text = "You win!";				
 		}
 		//Higher, lower, or equal
 		if (Input.GetKeyDown (KeyCode.UpArrow)) 
@@ -51,7 +48,7 @@ public class NumberGuessing : MonoBehaviour {
 			minValue = guess;
 			guess = (maxValue + minValue) / 2;
 			count--;
-			print ("Is the number higher or lower than: " + guess);
+			theGuesser.text = "Is the number higher or lower than:\n" + guess;
 		} 
 
 		else if (Input.GetKeyDown (KeyCode.DownArrow)) 
@@ -59,18 +56,21 @@ public class NumberGuessing : MonoBehaviour {
 			maxValue = guess;
 			guess = (maxValue + minValue) / 2;
 			count--;
-			print ("Is the number higher or lower than: " + guess);
+			theGuesser.text = "Is the number higher or lower than:\n" + guess;
 		}
 
 		else if (Input.GetKeyDown (KeyCode.Return)) 
 		{
-			print ("Your number is: " + guess);
+			theGuesser.text = "Your number is:\n" + guess
+					+ "I win!";
 		}
-		//no more guesses
+
 		if (count == 0) 
 		{
 			count--;
 		}
+
+
 			
 		
 		//when counter reaches zero and the number has not been guessed, players wins
