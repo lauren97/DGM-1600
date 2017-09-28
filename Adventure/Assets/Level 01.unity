@@ -137,6 +137,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textObject: {fileID: 487359067}
   myState: 0
+  needle: 0
+  dead: 0
+  needleUsed: 0
+  oldPotion: 0
+  gems: 0
+  message: 
 --- !u!4 &121600812
 Transform:
   m_ObjectHideFlags: 0
