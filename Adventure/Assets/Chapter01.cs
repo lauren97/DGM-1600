@@ -7,10 +7,10 @@ public class Chapter01 : MonoBehaviour {
 
     public Text textObject;
 //state machine
-    public enum States {start, start_n, door01, bed, window, hallway, right, left, drinkPotion, GameOver, hide, fight, twoDoors, wood, steel};
+    public enum States {start, start_n, door01, bed, window, hallway, right, left, drinkPotion, GameOver, hide, fight, twoDoors, wood, steel, arena, sword, door02, toBeContinued, slayLion, escapeDoor, ending};
     public States myState;
-    public bool needle = false, needleUsed = false, oldPotion = false, keys = false;
-    public int gems = 0;
+    public bool needle = false, needleUsed = false, oldPotion = false, keys = false, sword = false;
+    public int count = 0;
     public string message;
 
 // Use this for initialization
@@ -23,22 +23,33 @@ public class Chapter01 : MonoBehaviour {
 // Update is called once per frame
 	void Update ()
     {
+        //In Cell
         if (myState == States.start) { State_start(); }
         else if (myState == States.door01) { State_door_01(); }
         else if (myState == States.bed) { State_bed(); }
         else if (myState == States.window) { State_window(); }
         else if (myState == States.start_n) { State_start_n(); }
+        //Corridors
         else if (myState == States.hallway) { State_hallway(); }
         else if (myState == States.left) { State_left(); }
         else if (myState == States.drinkPotion) { State_drinkPotion(); }
         else if (myState == States.right) { State_right(); }
         else if (myState == States.hide) { State_hide(); }
         else if (myState == States.fight) { State_fight(); }
+        //Two Doors
         else if (myState == States.wood) { State_wood(); }
         else if (myState == States.steel) { State_steel(); }
-        //when death occurs
+        else if (myState == States.twoDoors) { State_TwoDoors(); }
+        //Arena
+        else if (myState == States.arena) { State_arena(); }
+        else if (myState == States.sword) { State_sword(); }
+        else if (myState == States.door02) { State_door02(); }
+        else if (myState == States.slayLion) { State_slayLion(); }
+        else if (myState == States.escapeDoor) { State_escapeDoor(); }
+        //gameplay elements
         else if (myState == States.GameOver) { State_GameOver(); }
-        
+        else if (myState == States.toBeContinued) { State_toBeContinued(); }
+        else if (myState == States.ending) { State_ending(); }
     }
 //In Cell
     void State_start()
@@ -259,37 +270,149 @@ public class Chapter01 : MonoBehaviour {
 //Two Doors
     void State_TwoDoors()
     {
+        textObject.text = "You steal the kesy from the guard. You come accross two doors. One made of Wood and one made of Steel." +
+            "Which one do you choose?" +
+            "\nWood (W)" +
+            "\nSteel (S)";
+        if (Input.GetKeyDown(KeyCode.W)) { myState = States.wood; }
+        else if (Input.GetKeyDown(KeyCode.S)){ myState = States.steel; }             
+    }
+    void State_wood()
+    {
         if (keys == true)
         {
-            textObject.text = "You steal the kesy from the guard. You come accross two doors. One made of Wood and one made of Steel." +
-                "Which one do you choose?" +
-                "\nWood (W)" +
-                "\nSteel (S)";
-            if (Input.GetKeyDown(KeyCode.W)) { myState = States.wood; }
-            else if (Input.GetKeyDown(KeyCode.S)){ myState = States.steel; }
+            textObject.text = "The door won't move. Its locked." +
+                "\nUse Keys(K)";
+            if (Input.GetKeyDown(KeyCode.K)) {myState = States.ending; }
         }
         else if (keys == false)
         {
-            textObject.text = "You come accross two doors. One made of Wood and one made of Steel." +
-                "Which one do you choose?" +
-                "\nWood (W)" +
-                "\nSteel (S)";
-            if (Input.GetKeyDown(KeyCode.W)) { myState = States.wood; }
-            else if (Input.GetKeyDown(KeyCode.S)){ myState = States.steel; }
+            textObject.text = "The door won't move. Its locked." +
+                "\nGo Back(B)";
+            myState = States.twoDoors;
         }
     }
     void State_steel()
     {
-        textObject.text = "test";
+        textObject.text = "Open the Steel door?" +
+            "\nYes (Y)" +
+            "\nNo (N)";
+        if (Input.GetKeyDown(KeyCode.Y))
+            { myState = States.arena; }
+
     }
-    void State_wood()
+//Arena
+    void State_arena()
     {
-        textObject.text = "test";
+        textObject.text = "You unlock the door. You run outside, relieved to be free of the horrible smelling dungeons." +
+            "You suddenly hear loud screams and cheers as you run out onto a sandy field." +
+            "You're in an arena. You turn back only to find the door closed and locked behind you." +
+            "\n\nYou need to hurry. You see:" +
+            "\nA Door on the far side of the arena. (D)" +
+            "\nA Sword between two rocks. (S)" +
+            "\nA Gate that's being opened (G)";
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            myState = States.door02; 
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            myState = States.sword;
+        }
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            message = "You run to the gate as fast as you can. Once you reach it you dive inside. You get up and start to run down the narrow tunnel." +
+                "You slam into something huge and furry. You take a step back, seeing the Lion's huge teeth before you're eaten.";
+            myState = States.GameOver;
+        }
+    }
+    void State_sword()
+    {
+        if (oldPotion == true)
+        {
+            textObject.text = "You run towards the sword, pulling on it, you realize it's stuck." +
+                "\nUse Potion. (P)" +
+                "\nRun for the door.(R)";
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                sword = true;
+                myState = States.door02;
+            }
+            else if (Input.GetKeyDown(KeyCode.P))
+            {
+                myState = States.door02;
+            }
+        }
+        else if (oldPotion == false)
+        {
+            textObject.text = "You run towards the sword, pulling on it, you realize it's stuck." +
+                "\nRun for the door.(R)";
+        }
+    }
+    void State_door02()
+    {
+        if (sword == true)
+        {
+            textObject.text = "The potion disolves the rocks, but don't harm the sword." +
+                "After freeing the sword you run towards the door, running as fast as you can. You hear a roar behind you! " +
+                    "Looking over your shoulder you see a massive Lion. It looks hungry and it's gaining!"+
+                    "\n\nFight the Lion (F)" +
+                    "\n\nRun (R)";
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                myState = States.slayLion;
+            }
+            else if (Input.GetKeyDown(KeyCode.R))
+            {
+                message = "You almost make it to the door. The lion pounces just as you reach for the handle.";
+                myState = States.GameOver;
+            }
+        }
+        else if (sword == false)
+        {
+            textObject.text = "You run towards the door, running as fast as you can. You hear a roar behind you! " +
+                    "Looking over your shoulder you see a massive Lion. It looks hungry and it's gaining!" +
+                    "\n\nRun (R)";
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                message = "You almost make it to the door. The lion pounces just as you reach for the handle.";
+                myState = States.GameOver;
+            }
+        }
+    }
+    void State_slayLion()
+    {
+        textObject.text = "You turn around, holding the sword out in front of you as the lion pounces." +
+            "The impact knocks you to the ground, but you're unharmed." +
+            "You get up and start to run back to the door." +
+            "\n\nOpen door (O)";
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.escapeDoor; }
+    }
+    void State_escapeDoor()
+    {
+    textObject.text = "You run out of the arena, angry cries following you as you squeeze between the bars of a gate." +
+            "You run faster, escaping and running to freedom.";
+        count++;
+        if (count == 200) { myState = States.toBeContinued; }
     }
     //Basic Gameplay
     void State_GameOver()
     {
         //The user has died and the game will need to restart.
-        textObject.text = "Game Over\n" + message;
+        textObject.text = "Game Over\n\n" + message;
+    }
+    void State_toBeContinued()
+    {
+        textObject.text = "To Be Continued...";
+    }
+    void State_ending()
+    {
+        textObject.text = "You open the door and run up a flight of stairs. A few seconds later you find yourself outside, seeing an arena nearby." +
+           "You hear cheers, meaning there must be an event. You run the oposite way, escaping without being seen.";
+        count++;
+        if (count == 200)
+        {
+            myState = States.toBeContinued;
+        }
     }
 }
