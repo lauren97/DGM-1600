@@ -1,0 +1,14 @@
+A variable is an creating an object with a spesific purpose such as:
+int = an integer or whole number
+float = a number that could be a fraction or decimal
+string = a word or multiple words
+char = a single character (like 'a', 'b', or 'c')
+bool = a boolean or true/false statement.
+
+Variables are like home addresses for information. For example: 
+	int age = 0;
+The information can be altered by a user (if it is a public variable) by inputing different information or by
+a formula within the code:
+	int age = 0;
+	age++;
+	
