@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    public void OpenLevel(string lvl)
+	public static int brickCount;
+	public void Start()
+	{
+		brickCount = FindObjectsOfType<Brick> ().Length;
+		print (brickCount);
+	}
+
+	public void OpenLevel(string lvl)
     {
         SceneManager.LoadScene(lvl);
     }
@@ -14,4 +21,15 @@ public class LevelManager : MonoBehaviour {
         print("Exit?");
         Application.Quit();
     }
+	public void LoadNextLevel()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
+	}
+	public void CheckBrickCount()
+	{
+		brickCount = FindObjectsOfType<Brick> ().Length;
+		if (brickCount <= 0) {
+			LoadNextLevel ();
+		}
+	}
 }
