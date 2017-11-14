@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour {
     public GameObject projectile;
     public Transform shotPos;
     public float shotForce;
+    public ParticleSystem particle;
 
     
 
@@ -34,6 +35,7 @@ public class PlayerControl : MonoBehaviour {
 			//move player Up
 			//print ("Up");
             transform.Translate(0, speed, 0);
+            //get thrusters to activate
             
 		}
 		if (Input.GetKey (KeyCode.DownArrow)) 
@@ -62,6 +64,8 @@ public class PlayerControl : MonoBehaviour {
             shot.GetComponent<Rigidbody2D>().AddForce(shotPos.up * shotForce);
             //shot.AddForce(shotPos.forward * shotForce);
         }
+
+
 
 
 		
