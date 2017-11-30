@@ -5,8 +5,8 @@ using UnityEngine;
 public class Meteor : MonoBehaviour {
 
     // Use this for initialization
-    public float startSpin;
-    public int health = 5;
+    public float startSpin;    
+    public Health metHealth;
 	void Start ()
     {
         GetComponent<Rigidbody2D>().AddTorque(Random.Range(-startSpin,startSpin),ForceMode2D.Impulse);	
@@ -15,10 +15,10 @@ public class Meteor : MonoBehaviour {
 	// Update is called once per frame
 	void OnCollisionEnter2D(Collision2D collider)
     {
-        health--;
-        if (health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+        metHealth.IncrementHealth(-1);
 	}
+    void OnCollisionEnter2D(Collision coll)
+    {
+        GetComponent<Health>().IncrementHealth(-1);
+    }
 }

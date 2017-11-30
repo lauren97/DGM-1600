@@ -14,12 +14,8 @@ public class PlayerControl : MonoBehaviour {
     public GameObject projectile;
     public Transform shotPos;
     public float shotForce;
-    public ParticleSystem particle;
-
+    public ParticleSystem particle;    
     
-
-	// Use this for initialization
-
 	void Start () 
 	{
        
@@ -30,7 +26,7 @@ public class PlayerControl : MonoBehaviour {
 	{
         //Vector3 playerPos =  
 		//Move Ship with Arrow Keys
-		if (Input.GetKey (KeyCode.UpArrow)) 
+		if (Input.GetKey (KeyCode.W)) 
 		{
 			//move player Up
 			//print ("Up");
@@ -38,19 +34,19 @@ public class PlayerControl : MonoBehaviour {
             //get thrusters to activate
             
 		}
-		if (Input.GetKey (KeyCode.DownArrow)) 
+		if (Input.GetKey (KeyCode.S)) 
 		{
 			//move player Down
 			//print ("Down");
             transform.Translate(0, speed * -1, 0);
         }
-		if (Input.GetKey (KeyCode.LeftArrow)) 
+		if (Input.GetKey (KeyCode.A)) 
 		{
 			//move player Left
 			//print ("Left");
             transform.Translate(speed * -1, 0, 0);
         }
-		if (Input.GetKey (KeyCode.RightArrow)) 
+		if (Input.GetKey (KeyCode.D)) 
 		{
 			//move player Right
 			//print ("Right");
@@ -70,4 +66,7 @@ public class PlayerControl : MonoBehaviour {
 
 		
 	}
+   
+
+
 }

@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 50171474190342016}
   - component: {fileID: 60860164748602666}
   - component: {fileID: 114071431345625632}
-  m_Layer: 0
+  - component: {fileID: 114509066304496600}
+  m_Layer: 10
   m_Name: Meteor
-  m_TagString: Untagged
+  m_TagString: Meteors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719527452626928}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93132037, y: -1.0145023, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.688365, y: 2.7239923, z: -6.390625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,7 +113,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpin: 0.5
-  health: 2
+  metHealth: {fileID: 0}
+--- !u!114 &114509066304496600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719527452626928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac10d607f863b4a49bd2abfdb2ae77f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffects: {fileID: 1289589924123986, guid: be737a86625376743ba921cd8d4067e4,
+    type: 2}
+  health: 1
+  hearts: []
 --- !u!212 &212478415509647990
 SpriteRenderer:
   m_ObjectHideFlags: 1
