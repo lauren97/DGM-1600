@@ -16,9 +16,10 @@ public class Meteor : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collider)
     {
         metHealth.IncrementHealth(-1);
+        collider.gameObject.GetComponent<Health>().IncrementHealth(-1);
 	}
-    void OnCollisionEnter2D(Collision coll)
-    {
-        GetComponent<Health>().IncrementHealth(-1);
-    }
+    
+
+
+    
 }

@@ -1,24 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour {
 
     public GameObject explosionEffects;
     public int health;
     public GameObject[] hearts;
+    public Text scoreboard;
+    public int score = 0;
+    //public int score;
+
+    //private bool mePlayer;
+
     private void Start()
     {
-        ShowHearts();   
+
+        if (MePlayer())
+        {
+         //Calls showhearts funtion to display health bar if player exists
+            ShowHearts();
+        }
     }
 
-    public void IncrementHealth (int value)
+    public void IncrementHealth(int value)
     {
         health += value;
         if (health <= 0)
         {
             Destroy(gameObject);
-            Instantiate(explosionEffects, transform.position, Quaternion.identity);
+            Instantiate(explosionEffects, transform.position, Quaternion.identity);            
+            
         }
         ShowHearts();
     }
@@ -34,8 +47,24 @@ public class Health : MonoBehaviour {
         {
             hearts[i].SetActive(true);
         }
-       
+
     }
-	
-	
+    private bool MePlayer()
+    {
+        if (GetComponent<PlayerControl>())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private void IncrementScore()
+    {
+        //find scoreKeeper object
+       //scoreboard.text = int.Parse(scoreboard.text) + 10;
+     }
+
+
 }
