@@ -7,20 +7,20 @@ public class Health : MonoBehaviour {
 
     public GameObject explosionEffects;
     public int health;
-    public GameObject[] hearts;
-    public Text scoreboard;
-    public int score = 0;
+    public GameObject[] hearts;      
+    public GameObject scoreBoard;
+    public ScoreBoard scoreScript;
     //public int score;
 
     //private bool mePlayer;
 
     private void Start()
     {
-
         if (MePlayer())
         {
          //Calls showhearts funtion to display health bar if player exists
             ShowHearts();
+            scoreBoard = FindObjectOfType<ScoreBoard>().gameObject;
         }
     }
 
@@ -30,8 +30,9 @@ public class Health : MonoBehaviour {
         if (health <= 0)
         {
             Destroy(gameObject);
-            Instantiate(explosionEffects, transform.position, Quaternion.identity);            
-            
+            Instantiate(explosionEffects, transform.position, Quaternion.identity);
+            if (!MePlayer())
+                IncrementScore();
         }
         ShowHearts();
     }

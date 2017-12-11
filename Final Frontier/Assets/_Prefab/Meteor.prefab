@@ -58,7 +58,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 0.01
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -130,6 +130,9 @@ MonoBehaviour:
   health: 1
   hearts: []
   scoreboard: {fileID: 0}
+  score: 0
+  scoreBoard: {fileID: 0}
+  scoreScript: {fileID: 0}
 --- !u!212 &212478415509647990
 SpriteRenderer:
   m_ObjectHideFlags: 1

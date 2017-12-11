@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
 
-    public enum Type {speedBoost, shield, ultimateLaser};
+    public enum Type {speedBoost, shield, oneUp};
     public Type powerupType;
     public Sprite[] images;
     
@@ -20,7 +20,7 @@ public class PowerUp : MonoBehaviour {
             case Type.shield:
                 gameObject.GetComponent<SpriteRenderer>().sprite = images[1];
                 break;
-            case Type.ultimateLaser:
+            case Type.oneUp:
                 gameObject.GetComponent<SpriteRenderer>().sprite = images[2];
                 break;
             default:
@@ -45,7 +45,8 @@ public class PowerUp : MonoBehaviour {
             case Type.shield:
 
                 break;
-            case Type.ultimateLaser:
+            case Type.oneUp:
+                //player gains one health
                 break;
             default:
                 break;

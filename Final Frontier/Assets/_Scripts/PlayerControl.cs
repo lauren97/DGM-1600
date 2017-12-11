@@ -14,7 +14,8 @@ public class PlayerControl : MonoBehaviour {
     public GameObject projectile;
     public Transform shotPos;
     public float shotForce;
-    public ParticleSystem particle;    
+    public ParticleSystem particle;
+    public Sprite[] ships;
     
 	void Start () 
 	{
@@ -51,7 +52,6 @@ public class PlayerControl : MonoBehaviour {
 			//print ("Right");
             transform.Translate(speed, 0, 0);
         }
-
         //fire laser
         if (Input.GetButtonUp("Fire1"))
         {
@@ -59,11 +59,7 @@ public class PlayerControl : MonoBehaviour {
             shot.GetComponent<Rigidbody2D>().AddForce(shotPos.up * shotForce);
             //shot.AddForce(shotPos.forward * shotForce);
         }
-
-
-
-
-		
+        		
 	}
    
 
