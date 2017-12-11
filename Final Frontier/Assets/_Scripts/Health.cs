@@ -7,6 +7,7 @@ public class Health : MonoBehaviour {
 
     public GameObject explosionEffects;
     public int health;
+
     public GameObject[] hearts;      
     public GameObject scoreBoard;
     public ScoreBoard scoreScript;

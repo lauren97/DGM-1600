@@ -19,21 +19,23 @@ public class PlayerControl : MonoBehaviour {
     
 	void Start () 
 	{
-       
+        
     }
 	
 	// Update is called once per frame
 	void Update () 
 	{         
-		//Move Ship with Arrow Keys
-		if (Input.GetKey (KeyCode.W)) 
-		{
-			//move player Up
-			//print ("Up");
+		ShipFunctionality();	
+        		
+	}
+    void ShipFunctionality()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {   //move player Up
+            //print ("Up");
             transform.Translate(0, speed, 0);
             //get thrusters to activate
-            
-		}
+        }		    
 		if (Input.GetKey (KeyCode.S)) 
 		{
 			//move player Down
@@ -59,8 +61,7 @@ public class PlayerControl : MonoBehaviour {
             shot.GetComponent<Rigidbody2D>().AddForce(shotPos.up * shotForce);
             //shot.AddForce(shotPos.forward * shotForce);
         }
-        		
-	}
+    }
    
 
 

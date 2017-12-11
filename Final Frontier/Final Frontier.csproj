@@ -83,6 +83,7 @@
     <Compile Include="Assets\_Scripts\Laser.cs" />
     <Compile Include="Assets\_Scripts\LevelManager.cs" />
     <Compile Include="Assets\_Scripts\Meteor.cs" />
+    <Compile Include="Assets\_Scripts\MeteorHealth.cs" />
     <Compile Include="Assets\_Scripts\MusicManager.cs" />
     <Compile Include="Assets\_Scripts\PlayerControl.cs" />
     <Compile Include="Assets\_Scripts\PowerUp.cs" />

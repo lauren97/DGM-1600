@@ -10,8 +10,7 @@ public class PowerUp : MonoBehaviour {
     
     // Use this for initialization
 	void Start ()
-     {
-        
+    {
         switch (powerupType)
         {
             case Type.speedBoost:
@@ -26,11 +25,11 @@ public class PowerUp : MonoBehaviour {
             default:
                 break;
         }
-
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 

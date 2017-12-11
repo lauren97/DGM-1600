@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 50171474190342016}
   - component: {fileID: 60860164748602666}
   - component: {fileID: 114071431345625632}
-  - component: {fileID: 114509066304496600}
+  - component: {fileID: 114696081846682658}
+  - component: {fileID: 114753486969387674}
   m_Layer: 10
   m_Name: Meteor
   m_TagString: Meteors
@@ -113,8 +114,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpin: 0.5
-  metHealth: {fileID: 114509066304496600}
---- !u!114 &114509066304496600
+  metHealth: {fileID: 0}
+  playerHealth: {fileID: 0}
+  meteor: {fileID: 0}
+  spawnTime: 3
+  spawnPoints: []
+--- !u!114 &114696081846682658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719527452626928}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b0b81d2ca087246baa6f75c571867b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meteorHealth: 1
+  explosionEffects: {fileID: 1289589924123986, guid: be737a86625376743ba921cd8d4067e4,
+    type: 2}
+--- !u!114 &114753486969387674
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -125,12 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac10d607f863b4a49bd2abfdb2ae77f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffects: {fileID: 1289589924123986, guid: be737a86625376743ba921cd8d4067e4,
-    type: 2}
-  health: 1
+  explosionEffects: {fileID: 0}
+  health: 0
   hearts: []
-  scoreboard: {fileID: 0}
-  score: 0
   scoreBoard: {fileID: 0}
   scoreScript: {fileID: 0}
 --- !u!212 &212478415509647990
