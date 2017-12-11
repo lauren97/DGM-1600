@@ -17,6 +17,7 @@ public class PlayerControl : MonoBehaviour {
     public ParticleSystem particle;
     public Sprite[] ships;
     
+    
 	void Start () 
 	{
        
@@ -24,7 +25,11 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () 
-	{         
+	{
+        Movement();
+    }
+    public void Movement()
+    {            
 		//Move Ship with Arrow Keys
 		if (Input.GetKey (KeyCode.W)) 
 		{
@@ -36,7 +41,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if (Input.GetKey (KeyCode.S)) 
 		{
-			//move player Down
+            //move player Down
 			//print ("Down");
             transform.Translate(0, speed * -1, 0);
         }
@@ -58,10 +63,8 @@ public class PlayerControl : MonoBehaviour {
             GameObject shot = Instantiate(projectile, shotPos.position, shotPos.rotation) as GameObject;
             shot.GetComponent<Rigidbody2D>().AddForce(shotPos.up * shotForce);
             //shot.AddForce(shotPos.forward * shotForce);
-        }
-        		
-	}
-   
+        }  
+    }
 
 
 }

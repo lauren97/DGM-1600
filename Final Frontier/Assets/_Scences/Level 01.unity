@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 130339264}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4089,6 +4089,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4904423340869656, guid: ae58099a18f4ee7468142cf89418e5e7, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114280469722462954, guid: ae58099a18f4ee7468142cf89418e5e7,
+        type: 2}
+      propertyPath: powerupType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8095,7 +8100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.75172424, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8103,19 +8108,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5f39d843c8a15914898b39cce55a91f2, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 5
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Score: 1000'
 --- !u!222 &2140595623
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8134,6 +8139,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  display: {fileID: 0}
-  highscoreDisplay: {fileID: 0}
-  prevScoreDisplay: {fileID: 0}
+  display: {fileID: 2140595622}

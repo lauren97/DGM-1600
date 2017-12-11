@@ -9,23 +9,20 @@ public class ScoreBoard : MonoBehaviour {
     //variables
     public int score;
     public Text display;
-    public Text highscoreDisplay;
-    public Text prevScoreDisplay;
-    void Start () {
-        score = 0;
-       /* if (display != null)        
+    //public Text highscoreDisplay;
+    //public Text prevScoreDisplay;
+    void Start ()
+    {        
+        if (display != null)        
             display.text = score.ToString();        
-        if (highscoreDisplay != null)
+        /*if (highscoreDisplay != null)
             display.text = GetScore().ToString();
         if (prevScoreDisplay != null)
             display.text = PlayerPrefs.GetInt("PrevScore", score);*/
-
-
     }
     public void IncrementScoreboard(int value)
     {
-        score += value;
-        display.text = score.ToString();
+        score += value;                
     }
     public void SaveScore()
     {

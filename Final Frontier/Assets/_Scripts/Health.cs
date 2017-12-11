@@ -11,11 +11,11 @@ public class Health : MonoBehaviour {
     public GameObject scoreBoard;
     public ScoreBoard scoreScript;
     //public int score;
-
-    //private bool mePlayer;
+    private bool mePlayer;
 
     private void Start()
     {
+        //if mePLayer() it tests if the Player is the object
         if (MePlayer())
         {
          //Calls showhearts funtion to display health bar if player exists
@@ -23,16 +23,16 @@ public class Health : MonoBehaviour {
             scoreBoard = FindObjectOfType<ScoreBoard>().gameObject;
         }
     }
-
+    //increases health
     public void IncrementHealth(int value)
     {
         health += value;
+        //Destroys the meteor or player once health is equal or less than 0
         if (health <= 0)
-        {
-            Destroy(gameObject);
+        {   Destroy(gameObject);  
             Instantiate(explosionEffects, transform.position, Quaternion.identity);
-            if (!MePlayer())
-                IncrementScore();
+            if (MePlayer() == false)
+                scoreScript.IncrementScoreboard(10);           
         }
         ShowHearts();
     }
@@ -61,11 +61,7 @@ public class Health : MonoBehaviour {
             return false;
         }
     }
-    private void IncrementScore()
-    {
-        //find scoreKeeper object
-       //scoreboard.text = int.Parse(scoreboard.text) + 10;
-     }
+   
 
 
 }

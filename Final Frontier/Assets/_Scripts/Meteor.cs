@@ -16,27 +16,18 @@ public class Meteor : MonoBehaviour {
 
     void Start ()
     {
-        GetComponent<Rigidbody2D>().AddTorque(Random.Range(-startSpin,startSpin),ForceMode2D.Impulse);
-        //call the Spawn Function
-        InvokeRepeating("Spawn", spawnTime, spawnTime);
+        GetComponent<Rigidbody2D>().AddTorque(Random.Range(-startSpin,startSpin),ForceMode2D.Impulse);       
 	}
 	
 	// Update is called once per frame
 	void OnCollisionEnter2D(Collision2D collider)
     {
+        //Decreases health of the meteors
         metHealth.IncrementHealth(-1);
-        collider.gameObject.GetComponent<Health>().IncrementHealth(-1);
+        //decreases players health
+        collider.gameObject.GetComponent<Health>().IncrementHealth(-1); 
 	}
-    void Spawn()
-    {
-        if (playerHealth.health >= 0)
-            return;
-        //find random index between 0 and 1 less than the number of spawnpoints
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-
-        //create an instance of the metepr prefab at the randomly selected spawn point's position and rotation
-        Instantiate(meteor, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-    }
+    
     
 
 
