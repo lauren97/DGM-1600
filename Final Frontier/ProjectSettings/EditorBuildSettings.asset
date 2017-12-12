@@ -12,5 +12,8 @@ EditorBuildSettings:
     path: Assets/_Scences/Level 01.unity
     guid: a03b6ea24edae4be7b24517147c06c7a
   - enabled: 1
+    path: Assets/_Scences/Win.unity
+    guid: 4d1d0c97378a8144e87662e5c9b97286
+  - enabled: 1
     path: Assets/_Scences/GameOver.unity
     guid: 5661f2c8255b3a14080b0613c42325a9

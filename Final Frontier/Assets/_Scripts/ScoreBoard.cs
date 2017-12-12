@@ -7,22 +7,20 @@ public class ScoreBoard : MonoBehaviour {
 
     // Use this for initialization
     //variables
-    public int score;
+    public int score = 0;
     public Text display;
+    public LevelManager level;
     //public Text highscoreDisplay;
     //public Text prevScoreDisplay;
     void Start ()
     {        
         if (display != null)        
-            display.text = score.ToString();        
-        /*if (highscoreDisplay != null)
-            display.text = GetScore().ToString();
-        if (prevScoreDisplay != null)
-            display.text = PlayerPrefs.GetInt("PrevScore", score);*/
+            display.text = ("Score: " + score.ToString());        
     }
-    public void IncrementScoreboard(int value)
-    {
-        score += value;                
+    public void IncrementScoreboard()
+    {           
+            score = score + 10;
+            SetScoreText();
     }
     public void SaveScore()
     {
@@ -39,6 +37,10 @@ public class ScoreBoard : MonoBehaviour {
     public void OnDisable()
     {
         SaveScore();
+    }
+    public void SetScoreText()
+    {
+        display.text = ("Score: " + score.ToString());
     }
 
 }

@@ -10,6 +10,7 @@ public class Health : MonoBehaviour {
     public GameObject[] hearts;      
     public GameObject scoreBoard;
     public ScoreBoard scoreScript;
+    public LevelManager lvl;
     //public int score;
     private bool mePlayer;
 
@@ -28,11 +29,11 @@ public class Health : MonoBehaviour {
     {
         health += value;
         //Destroys the meteor or player once health is equal or less than 0
+        
         if (health <= 0)
-        {   Destroy(gameObject);  
+        {
+            Destroy(gameObject);
             Instantiate(explosionEffects, transform.position, Quaternion.identity);
-            if (MePlayer() == false)
-                scoreScript.IncrementScoreboard(10);           
         }
         ShowHearts();
     }

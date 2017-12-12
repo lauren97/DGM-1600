@@ -15,8 +15,8 @@ public class PlayerControl : MonoBehaviour {
     public Transform shotPos;
     public float shotForce;
     public ParticleSystem particle;
-    public Sprite[] ships;
-    
+    //health
+    public Health playerHealth;    
     
 	void Start () 
 	{
@@ -26,7 +26,7 @@ public class PlayerControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-        Movement();
+        Movement();        
     }
     public void Movement()
     {            
@@ -65,6 +65,10 @@ public class PlayerControl : MonoBehaviour {
             //shot.AddForce(shotPos.forward * shotForce);
         }  
     }
-
-
+    void OnCollisionEnter2D(Collision2D collider)
+    {
+        //Decreases health of the player on collision with meteor
+        if(collider.gameObject.GetComponent<Meteor>())
+            playerHealth.IncrementHealth(-1);
+    }
 }

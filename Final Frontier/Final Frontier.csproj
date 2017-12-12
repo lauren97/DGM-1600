@@ -87,6 +87,8 @@
     <Compile Include="Assets\_Scripts\PlayerControl.cs" />
     <Compile Include="Assets\_Scripts\PowerUp.cs" />
     <Compile Include="Assets\_Scripts\ScoreBoard.cs" />
+    <Compile Include="Assets\_Scripts\SpaceCoin.cs" />
+    <Compile Include="Assets\_Scripts\Timer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

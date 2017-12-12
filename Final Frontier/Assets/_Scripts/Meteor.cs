@@ -7,12 +7,8 @@ public class Meteor : MonoBehaviour {
     // Use this for initialization
     public float startSpin;    
     public Health metHealth;
-   
-    //Random Generation of Meteors
-    public Health playerHealth;
-    public GameObject meteor;
-    public float spawnTime = 3f;
-    public Transform[] spawnPoints;
+    public ScoreBoard score;   
+    
 
     void Start ()
     {
@@ -24,8 +20,6 @@ public class Meteor : MonoBehaviour {
     {
         //Decreases health of the meteors
         metHealth.IncrementHealth(-1);
-        //decreases players health
-        collider.gameObject.GetComponent<Health>().IncrementHealth(-1); 
 	}
     
     

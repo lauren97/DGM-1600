@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 	public static int brickCount;
+    public float timeleft = 30f;
+    public Health playerHealth;
+    public PlayerControl player;
+    
 	public void Start()
-	{
-		
+	{	
 
 	}
 
@@ -25,9 +28,9 @@ public class LevelManager : MonoBehaviour {
 	{
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 	}
-	public void CheckBrickCount()
-	{
-		
+    public void Update()
+    {
+           
 
-	}
+    }
 }
