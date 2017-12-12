@@ -24,8 +24,18 @@ public class Timer : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        //when player dies, end game
-        
-         
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            isPlayerDead = false;
+        }
+        else
+        {
+            isPlayerDead = true;
+            PlayerDead();
+        }
     }
+    void PlayerDead()
+    {
+        level.OpenLevel("GameOver");
+    }    
 }
